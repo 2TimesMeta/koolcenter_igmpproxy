@@ -91,7 +91,7 @@ $PROG - 用脚本自己的 igmpproxy.conf 接管 IGMP 代理 (TX-AX6000 / TUF-AX
   status           显示当前状态(自身功能开关/配置/进程/规则/rp_filter), 并做自检
   fwcheck          只做防火墙/rp_filter 自检(不添加规则、不改内核参数)
   rules            只补防火墙放行规则与 rp_filter(不写配置、不动 igmpproxy)
-                   —— 给外部守护脚本用(例: koolshare 插件的 start_nat 钩子)
+                   —— 给外部守护脚本用(例: koolcenter 插件的 start_nat 钩子)
   run              前台运行 igmpproxy 本身(exec 掉本脚本), 交给 perp 之类的
                    进程管理器看住: 挂了立刻重拉, 不需要守护脚本常驻
   help             显示本帮助
@@ -142,7 +142,7 @@ have() { command -v "$1" >/dev/null 2>&1; }
 # 找一个命令的绝对路径: 先按名在 PATH 里找, 再逐个试给出的绝对路径候选。
 # 为什么需要它: 部分固件(或非 root 会话)的 PATH 里没有 /usr/sbin, 有些精简 shell 的
 # command -v 也不完全可靠, 但 iptables 其实就躺在 /usr/sbin 下 —— 只靠 command -v
-# 会误报"找不到 iptables"(实测某 koolshare 机型就是这样)。
+# 会误报"找不到 iptables"(实测某 koolcenter 机型就是这样)。
 find_cmd() {
 	for _fc in "$@"; do
 		case "$_fc" in
@@ -206,7 +206,7 @@ on_router() {
 }
 
 # 真·igmpproxy 进程判定: /proc/<pid>/cmdline 的第一个参数(可执行文件) basename 必须是 igmpproxy。
-# 为什么不能只靠 pidof: 部分固件(实测某 koolshare 机器)的 pidof 是按 cmdline 子串匹配的,
+# 为什么不能只靠 pidof: 部分固件(实测某 koolcenter 机器)的 pidof 是按 cmdline 子串匹配的,
 # 会把本脚本自己 "sh igmpproxy-takeover.sh check"、甚至同一条 ps|grep|awk 管道里的
 # grep/awk 都当成 igmpproxy 列出来 —— 那样 --force 就可能误杀无关进程。
 is_igmp_exec() {
@@ -933,7 +933,7 @@ do_conf() {
 
 do_rules() {
 	# 只做配置文件的"配套动作": 防火墙放行 + rp_filter + 自检。
-	# 给外部守护脚本用(koolshare 的 perp 插件、start_nat 钩子等): 它们负责把
+	# 给外部守护脚本用(koolcenter 的 perp 插件、start_nat 钩子等): 它们负责把
 	# igmpproxy 前台拉起/看住, 本命令负责它需要的内核与防火墙环境。
 	# 注意: 不写配置文件, 也不启动/停止 igmpproxy。
 	if [ "$DRYRUN" != 1 ] && ! is_root; then

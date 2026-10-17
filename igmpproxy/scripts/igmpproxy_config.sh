@@ -1,6 +1,6 @@
 #!/bin/sh
 #===============================================================================
-# igmpproxy_config.sh —— koolshare 软件中心插件「IGMP Proxy」主控脚本
+# igmpproxy_config.sh —— koolcenter 软件中心插件「IGMP Proxy」主控脚本
 #
 # 调用约定（软件中心插件的通用写法）：
 #   软件中心 httpdb :  igmpproxy_config.sh <请求id> <命令>

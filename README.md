@@ -1,4 +1,4 @@
-# IGMP Proxy —— koolshare 软件中心插件
+# IGMP Proxy —— koolcenter 软件中心插件
 
 接管路由器固件**自带**的 `/usr/sbin/igmpproxy`，用脚本生成的配置把运营商 IPTV 的组播
 流量转发进内网，内网设备上的播放器可以直接播放 IPTV 组播源。
@@ -6,10 +6,10 @@
 插件本体不含 igmpproxy 二进制 —— 固件里已经有了，插件负责**配置、拉起、放行防火墙、
 守护、以及提供网页界面**。
 
-- 项目地址 / 问题反馈：<https://github.com/avman-cn/koolshare_igmpproxy>
+- 项目地址 / 问题反馈：<https://github.com/avman-cn/koolcenter_igmpproxy>
 - 更新日志：[Changelog.txt](Changelog.txt)　许可证：[MIT](LICENSE)　作者：2TimesMeta
 
-> 本仓库是 koolshare 软件中心的**插件封装层**：igmpproxy 二进制来自路由器固件
+> 本仓库是 koolcenter 软件中心的**插件封装层**：igmpproxy 二进制来自路由器固件
 > `/usr/sbin/igmpproxy`，本仓库**不内置任何二进制**，只提供配置生成、启停、防火墙放行、
 > 进程守护和网页界面。
 
@@ -18,7 +18,7 @@
 ```
 .
 ├── config.json.js              # 软件中心插件描述（作者 / 仓库主页 / md5）
-├── build.py                    # 打包脚本（koolshare 规范，软件中心打包时使用）
+├── build.py                    # 打包脚本（koolcenter 规范，软件中心打包时使用）
 ├── Changelog.txt               # 更新日志
 ├── LICENSE                     # MIT
 ├── README.md                   # 本文件
@@ -33,7 +33,7 @@
     └── res/                    # 插件图标
 ```
 
-目录结构、`build.py`、`config.json.js` 与 [Koolcenter_ddns-go](https://github.com/avman-cn/Koolcenter_ddns-go) 保持同一套 koolshare 软件中心规范；
+目录结构、`build.py`、`config.json.js` 与 [Koolcenter_ddns-go](https://github.com/avman-cn/Koolcenter_ddns-go) 保持同一套 koolcenter 软件中心规范；
 `igmpproxy/` 目录内不放 README，插件包只带运行所需文件。
 
 ---
