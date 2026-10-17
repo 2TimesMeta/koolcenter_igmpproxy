@@ -18,21 +18,23 @@
 ```
 .
 ├── config.json.js              # 软件中心插件描述（作者 / 仓库主页 / md5）
-├── build.py                    # 打包脚本，生成 igmpproxy.tar.gz 并回写 md5
+├── build.py                    # 打包脚本（koolshare 规范，软件中心打包时使用）
 ├── Changelog.txt               # 更新日志
 ├── LICENSE                     # MIT
 ├── README.md                   # 本文件
-└── igmpproxy/                  # 插件本体，安装时整体拷贝到 /koolshare
+└── igmpproxy/                  # 插件本体，打包 / 安装时整体拷贝到 /koolshare
     ├── install.sh              # 安装脚本（离线安装入口）
     ├── uninstall.sh            # 卸载脚本
     ├── version                 # 插件版本号（1.0.0）
-    ├── .valid                  # 适配平台标记（mtk / hnd / qca）
+    ├── .valid                  # 平台校验标记（mtk / hnd / qca）
     ├── init.d/                 # 开机自启 / 关机入口（S99 / N99）
     ├── scripts/                # 主控 igmpproxy_config.sh + 接管引擎 igmpproxy-base.sh
     ├── webs/                   # 网页界面 Module_igmpproxy.asp
-    ├── res/                    # 插件图标
-    └── README.md               # 与根目录 README 相同（插件包内自带一份）
+    └── res/                    # 插件图标
 ```
+
+目录结构、`build.py`、`config.json.js` 与 [Koolcenter_ddns-go](https://github.com/avman-cn/Koolcenter_ddns-go) 保持同一套 koolshare 软件中心规范；
+`igmpproxy/` 目录内不放 README，插件包只带运行所需文件。
 
 ---
 
