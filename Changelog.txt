@@ -1,0 +1,11 @@
+KoolCenter IGMP Proxy Changelog
+===========================================
+1.0.0
+    - feat 接管固件自带的 /usr/sbin/igmpproxy，由脚本生成配置并拉起
+    - feat 上游 / 下游接口下拉选择，留空按 PPPoE 优先自动探测
+    - feat 三条带 comment 的 iptables 放行规则（IGMP / 组播 UDP / FORWARD），关闭时逐条清除
+    - feat 仅对上游接口关闭 rp_filter，停止时恢复原值
+    - feat 启动前收回残留实例、释放固件自带组播进程 mcpd、清理 perp 残留，解决 Errno(98)
+    - feat perp 前台守护 igmpproxy 进程本身，异常退出立即拉起
+    - feat 网页界面：状态 / 组播流向 / 进程守护 / 固件环境、设置项说明弹窗、一键关闭固件组播路由
+    - feat 诊断日志按钮，实时收集现场信息
