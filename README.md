@@ -6,7 +6,7 @@
 插件本体不含 igmpproxy 二进制 —— 固件里已经有了，插件负责**配置、拉起、放行防火墙、
 守护、以及提供网页界面**。
 
-- 项目地址 / 问题反馈：<https://github.com/avman-cn/koolcenter_igmpproxy>
+- 项目地址 / 问题反馈：<https://github.com/2TimesMeta/koolcenter_igmpproxy>
 - 更新日志：[Changelog.txt](Changelog.txt)　许可证：[MIT](LICENSE)　作者：2TimesMeta
 
 > 本仓库是 koolcenter 软件中心的**插件封装层**：igmpproxy 二进制来自路由器固件
@@ -33,7 +33,7 @@
     └── res/                    # 插件图标
 ```
 
-目录结构、`build.py`、`config.json.js` 与 [Koolcenter_ddns-go](https://github.com/avman-cn/Koolcenter_ddns-go) 保持同一套 koolcenter 软件中心规范；
+目录结构、`build.py`、`config.json.js` 与 [koolcenter_ddnsgo](https://github.com/2TimesMeta/koolcenter_ddnsgo) 保持同一套 koolcenter 软件中心规范；
 `igmpproxy/` 目录内不放 README，插件包只带运行所需文件。
 
 ---
